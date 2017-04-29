@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccc.dao.mapper.SysUserMapper">
+
+
+    <update id="modifySysUser" parameterType="com.ccc.entity.SysUser">
+        UPDATE t_sys_user
+        SET
+        sys_user_name = #{sysUserName},
+        sys_user_pwd = #{sysUserPwd},
+        sys_user_status = #{sysUserStatus},
+        role_id = #{roleId}
+        WHERE sysUserId = #{sysUserId}
+    </update>
+</mapper>
