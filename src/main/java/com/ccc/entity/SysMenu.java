@@ -1,292 +1,137 @@
 package com.ccc.entity;
 
 import com.ccc.base.entity.ResultInfo;
+import lombok.Builder;
+import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
 
 /**
  * @author cai
- * Created by cai on 2016/8/8.
+ *         Created by cai on 2016/8/8.
  */
-public class SysMenu extends ResultInfo
-{
+@Data
+@Entity
+@Table(name = "t_sys_menu")
+public class SysMenu extends ResultInfo {
     /**
      * 菜单ID
      */
+    @Id
+    @Column
     private int menuId;
 
     /**
      * 菜单名称
      */
+    @Column
     private String menuName;
 
     /**
      * 父菜单ID
      */
+    @Column
     private int menuParentId;
 
     /**
      * 菜单URL
      */
+    @Column
     private String menuUrl;
 
     /**
      * 菜单排序
      */
+    @Column
     private String menuSort;
 
     /**
      * 菜单级别
      */
+    @Column
     private String menuLevel;
 
     /**
      * 菜单是否显示
      */
+    @Column
     private String menuIsShow;
 
     /**
      * 菜单创建时间
      */
+    @Column
     private String createTime;
 
     /**
      * 菜单创建者
      */
+    @Column
     private String creator;
 
     /**
      * 菜单更新时间
      */
+    @Column
     private String updateTime;
 
     /**
      * 菜单更新者
      */
+    @Column
     private String updateUser;
 
     /**
      * 父菜单名称
      */
+    @Column
     private String parentName;
 
     /**
      * 路由名称
      */
+    @Column
     private String routeName;
 
     /**
      * 路由请求路径
      */
+    @Column
     private String routeUrl;
 
 
     /**
      * 路由模板路径
      */
+    @Column
     private String routeTempletUrl;
 
     /**
      * 路由JS或CSS文件集合
      */
+    @Column
     private String routeJs;
 
     /**
      * 菜单集合
      */
-    private List<SysMenu> childrenList;
+    /*@Column
+    private List<SysMenu> childrenList;*/
 
     /**
      * 菜单图标
      */
+    @Column
     private String menuIcon;
     /**
      * 角色菜单ID
      */
+    @Column
     private int roleMenuId;
 
-    public int getMenuId()
-    {
-        return menuId;
-    }
-
-    public void setMenuId(int menuId)
-    {
-        this.menuId = menuId;
-    }
-
-    public String getMenuName()
-    {
-        return menuName;
-    }
-
-    public void setMenuName(String menuName)
-    {
-        this.menuName = menuName;
-    }
-
-    public int getMenuParentId()
-    {
-        return menuParentId;
-    }
-
-    public void setMenuParentId(int menuParentId)
-    {
-        this.menuParentId = menuParentId;
-    }
-
-    public String getMenuUrl()
-    {
-        return menuUrl;
-    }
-
-    public void setMenuUrl(String menuUrl)
-    {
-        this.menuUrl = menuUrl;
-    }
-
-    public String getMenuSort() {
-        return menuSort;
-    }
-
-    public void setMenuSort(String menuSort) {
-        this.menuSort = menuSort;
-    }
-
-    public String getMenuLevel() {
-        return menuLevel;
-    }
-
-    public void setMenuLevel(String menuLevel) {
-        this.menuLevel = menuLevel;
-    }
-
-    public String getMenuIsShow()
-    {
-        return menuIsShow;
-    }
-
-    public void setMenuIsShow(String menuIsShow)
-    {
-        this.menuIsShow = menuIsShow;
-    }
-
-    public String getCreator()
-    {
-        return creator;
-    }
-
-    public void setCreator(String creator)
-    {
-        this.creator = creator;
-    }
-
-    public String getUpdateUser()
-    {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser)
-    {
-        this.updateUser = updateUser;
-    }
-
-    public int getRoleMenuId()
-    {
-        return roleMenuId;
-    }
-
-    public void setRoleMenuId(int roleMenuId)
-    {
-        this.roleMenuId = roleMenuId;
-    }
-
-    public String getCreateTime()
-    {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime)
-    {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime()
-    {
-        return updateTime;
-    }
-
-    public void setUpdateTime(String updateTime)
-    {
-        this.updateTime = updateTime;
-    }
-
-    public String getParentName() {
-        return parentName;
-    }
-
-    public void setParentName(String parentName) {
-        this.parentName = parentName;
-    }
-
-    public String getRouteName()
-    {
-        return routeName;
-    }
-
-    public void setRouteName(String routeName)
-    {
-        this.routeName = routeName;
-    }
-
-    public String getRouteUrl()
-    {
-        return routeUrl;
-    }
-
-    public void setRouteUrl(String routeUrl)
-    {
-        this.routeUrl = routeUrl;
-    }
-
-    public String getRouteTempletUrl()
-    {
-        return routeTempletUrl;
-    }
-
-    public void setRouteTempletUrl(String routeTempletUrl)
-    {
-        this.routeTempletUrl = routeTempletUrl;
-    }
-
-    public String getRouteJs()
-    {
-        return routeJs;
-    }
-
-    public void setRouteJs(String routeJs)
-    {
-        this.routeJs = routeJs;
-    }
-
-    public List<SysMenu> getChildrenList()
-    {
-        return childrenList;
-    }
-
-    public void setChildrenList(List<SysMenu> childrenList)
-    {
-        this.childrenList = childrenList;
-    }
-
-    public String getMenuIcon()
-    {
-        return menuIcon;
-    }
-
-    public void setMenuIcon(String menuIcon)
-    {
-        this.menuIcon = menuIcon;
-    }
 }

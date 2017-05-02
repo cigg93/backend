@@ -1,6 +1,7 @@
 package com.ccc.entity;
 
 import com.ccc.base.entity.ResultInfo;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Column;

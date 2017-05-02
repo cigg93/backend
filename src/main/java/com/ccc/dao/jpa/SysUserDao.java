@@ -14,6 +14,8 @@ public interface SysUserDao extends CrudRepository<SysUser, Integer> {
 
     SysUser findBySysUserName(String sysUserName);
 
+    SysUser findBySysUserNameAndSysUserPwdAndRoleId(String sysUserName, String pwd, int type);
+
     Page<SysUser> findAll(Pageable pageable);
 
 }

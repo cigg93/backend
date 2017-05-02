@@ -1,20 +1,25 @@
 package com.ccc.service;
 
 import com.ccc.entity.SysUser;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.data.domain.Page;
 
 /**
  * Created by ccc on 2017/3/19.
  */
-@Mapper
+
 public interface SysUserService {
 
-    SysUser login(String sysUsername) throws Exception;
+    SysUser login(SysUser sysUser) throws Exception;
 
     Page<SysUser> querySysUsers(Integer page, Integer size) throws Exception;
 
-    SysUser querySysUser(Integer sysUserId);
+    SysUser querySysUser(int sysUserId) throws Exception;
 
-    SysUser modifySysUser(SysUser sysUser);
+    SysUser querySysUser(String sysUserName) throws Exception;
+
+    SysUser modifySysUser(SysUser sysUser) throws Exception;
+
+    void delSysUser(int sysUserId) throws Exception;
+
+    SysUser addSysUser(SysUser sysUser) throws Exception;
 }

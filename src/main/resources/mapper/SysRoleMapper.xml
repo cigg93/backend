@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccc.dao.mapper.SysRoleMapper">
+
+
+    <update id="modifySysRole" parameterType="com.ccc.entity.SysRole">
+        UPDATE t_sys_role
+        SET
+        role_name = #{roleName}
+        WHERE role_id = #{roleId}
+    </update>
+    <!--<select id="querySysRole" resultType="com.ccc.entity.SysRole"-->
+            <!--parameterType="com.ccc.entity.SysRole">-->
+        <!--SELECT * FROM t_sys_role-->
+        <!--WHERE-->
+        <!--<if test="sysRoleName != null and sysRoleName != ''">-->
+            <!--sys_role_name = #{sysRoleName}-->
+        <!--</if>-->
+        <!--<if test="sysRoleId != null and sysRoleId != ''">-->
+            <!--AND sys_role_id = #{sysRoleId}-->
+        <!--</if>-->
+    <!--</select>-->
+</mapper>

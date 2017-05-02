@@ -1,13 +1,13 @@
 package com.ccc.entity;
 
 import com.ccc.base.entity.ResultInfo;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
 
 /**
  * 系统用户

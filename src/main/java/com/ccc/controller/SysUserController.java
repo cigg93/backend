@@ -22,13 +22,9 @@ public class SysUserController extends BaseController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public SysUser login(@RequestBody SysUser sysUser) throws Exception {
-        SysUser sysUser1 = null;
-        try {
-            sysUser1 = sysUserService.login(sysUser.getSysUserName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return sysUser1;
+
+//        SysUser sysUser1 = sysUserService.login(sysUser);
+        return sysUserService.login(sysUser);
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -37,7 +33,6 @@ public class SysUserController extends BaseController {
         /*分页信息*/
         Integer page = pageUtil.getPage(request);
         Integer size = pageUtil.getPageSize(request);
-            /*进行无条件分页查询*/
         Page<SysUser> sysUsers = sysUserService.querySysUsers(page, size);
         resultInfo.setTotal(sysUsers.getTotalElements());
         resultInfo.setRows(sysUsers.getContent());
@@ -45,22 +40,37 @@ public class SysUserController extends BaseController {
         return resultInfo;
     }
 
+    @RequestMapping(value = "info", method = RequestMethod.POST)
+    public SysUser addSysUser(
+            @RequestBody SysUser sysUser
+    ) throws Exception {
+        if (sysUserService.querySysUser(sysUser.getSysUserName()) != null) {
+            throw new Exception("用户已存在");
+        }
+        sysUser.setSysUserStatus("0");
+        return sysUserService.addSysUser(sysUser);
+    }
+
     @RequestMapping(value = "{sysUserId}/info", method = RequestMethod.GET)
     public SysUser querySysUser(
-            @PathVariable Integer sysUserId
+            @PathVariable int sysUserId
     ) throws Exception {
-        SysUser sysUser = sysUserService.querySysUser(sysUserId);
-
-        return sysUser;
+        return sysUserService.querySysUser(sysUserId);
     }
 
     @RequestMapping(value = "info", method = RequestMethod.PUT)
     public SysUser modifySysUser(
             @RequestBody SysUser sysUser
     ) throws Exception {
-        SysUser sysUser1 = sysUserService.modifySysUser(sysUser);
+        return sysUserService.modifySysUser(sysUser);
+    }
 
-        return sysUser1;
+    @RequestMapping(value = "sysUserId", method = RequestMethod.POST)
+    public void delSysUser(
+            @RequestBody SysUser sysUser
+    ) throws Exception {
+        sysUser.setSysUserStatus("1");
+        sysUserService.delSysUser(sysUser.getSysUserId());
     }
 
 

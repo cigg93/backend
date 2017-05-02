@@ -12,6 +12,17 @@
         sys_user_pwd = #{sysUserPwd},
         sys_user_status = #{sysUserStatus},
         role_id = #{roleId}
-        WHERE sysUserId = #{sysUserId}
+        WHERE sys_user_id = #{sysUserId}
     </update>
+    <select id="querySysUser" resultType="com.ccc.entity.SysUser"
+            parameterType="com.ccc.entity.SysUser">
+        SELECT * FROM t_sys_user
+        WHERE
+        <if test="sysUserName != null and sysUserName != ''">
+            sys_user_name = #{sysUserName}
+        </if>
+        <if test="sysUserId != null and sysUserId != ''">
+            AND sys_user_id = #{sysUserId}
+        </if>
+    </select>
 </mapper>
